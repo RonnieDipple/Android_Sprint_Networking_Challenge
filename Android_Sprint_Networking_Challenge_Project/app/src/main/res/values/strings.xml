@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Android_Sprint3_Challenge</string>
+    <string name="enter_pokemon_name_or_number">Enter Pokemon Name or Number</string>
+</resources>
