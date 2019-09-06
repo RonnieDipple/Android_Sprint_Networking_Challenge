@@ -10,4 +10,4 @@ data class Pokemon(
     @SerializedName("ability")
     val ability: String,
     @SerializedName("type")
-    val type: Int)
+    val type: String)

@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface PokemonApiInterface {
 
-    @GET
+    @GET("v2/")
     fun getPokemonApiFun(): Call<Pokemon>
 }
