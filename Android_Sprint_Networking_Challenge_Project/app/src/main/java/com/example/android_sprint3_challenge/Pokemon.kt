@@ -1,13 +1,24 @@
 package com.example.android_sprint3_challenge
 
-import com.google.gson.annotations.SerializedName
 
 data class Pokemon(
-    @SerializedName("name")
     val name: String,
-    val url: String,
+    val sprites: Sprite,
     val id: Int,
-    @SerializedName("ability")
-    val ability: String,
-    @SerializedName("type")
-    val type: String)
+    val abilities: List<AbilityList>,
+    val types: List<TypeList>
+    )
+
+
+data class Type(val name: String)
+
+data class TypeList (val type: Type )
+
+data class Ability(val name: String)
+
+data class AbilityList(val ability: Ability)
+
+data class Sprite (val front_default: String )
+
+data class Id (val id: Int)
+

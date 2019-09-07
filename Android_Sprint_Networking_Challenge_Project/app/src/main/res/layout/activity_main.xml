@@ -28,5 +28,12 @@
         app:layout_constraintStart_toEndOf="@id/edit_Text_Search"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

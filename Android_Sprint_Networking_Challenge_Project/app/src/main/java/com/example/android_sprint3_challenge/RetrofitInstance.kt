@@ -7,9 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://pokeapi.co/api/"
+    private const val BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
 
-    fun getPokemon(): Call<Pokemon>{
+    fun getPokemon(pokemon: String): Call<Pokemon>{
         val gson = GsonBuilder()
             .setLenient()
             .create()
@@ -19,6 +19,6 @@ object RetrofitInstance {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
-        return retrofit.create(PokemonApiInterface::class.java).getPokemonApiFun()
+        return retrofit.create(PokemonApiInterface::class.java).getPokemonApiFun(pokemon)
     }
 }
