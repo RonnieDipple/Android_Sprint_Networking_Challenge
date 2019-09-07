@@ -6,12 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 
 class MainActivity : AppCompatActivity(){
+    companion object{
+        const val LISTS = "list"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +44,13 @@ class MainActivity : AppCompatActivity(){
                         val intent = Intent(context, DetailsActivity::class.java)
                         intent.putExtra("id", myPokemon?.id.toString() ) // passes the id from the json body into the intent
                         intent.putExtra("spriteUrl", myPokemon?.sprites?.front_default) // passes the URL from the json body into the intent
+                        intent.putExtra("name", myPokemon?.name.toString())
+                        intent.putExtra("ability", myPokemon?.abilities)
+                        intent.putExtra("move", myPokemon?.move)
+                        intent.putExtra("type", myPokemon?.types)
                         startActivity(intent) // Starts the activity with the intent
+
+
 
 
                     }

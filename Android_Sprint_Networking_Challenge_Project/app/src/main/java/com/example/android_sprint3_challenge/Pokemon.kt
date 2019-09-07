@@ -1,12 +1,15 @@
 package com.example.android_sprint3_challenge
 
+import java.io.Serializable
+
 
 data class Pokemon(
     val name: String,
     val sprites: Sprite,
-    val id: Int,
-    val abilities: List<AbilityList>,
-    val types: List<TypeList>
+    val id: Long,
+    val abilities: ArrayList<AbilityList>,
+    val types: ArrayList<TypeList>,
+    val move: ArrayList<MovesList>
     )
 
 
@@ -18,7 +21,11 @@ data class Ability(val name: String)
 
 data class AbilityList(val ability: Ability)
 
+data class Move(val name: String)
+
+data class MovesList(val move: Move  )
+
 data class Sprite (val front_default: String )
 
-data class Id (val id: Int)
+data class Id (val id: Long)
 
