@@ -1,5 +1,7 @@
-package com.example.android_sprint3_challenge
+package com.example.android_sprint3_challenge.retrofit
 
+import com.example.android_sprint3_challenge.api.PokemonApiInterface
+import com.example.android_sprint3_challenge.model.Pokemon
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Retrofit

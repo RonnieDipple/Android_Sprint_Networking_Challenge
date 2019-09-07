@@ -43,4 +43,8 @@ dependencies {
     //Picasso
     def picassoVersion = "2.71828"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
+
+    //Recycler and Card
+    implementation 'com.android.support:recyclerview-v7:29.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }

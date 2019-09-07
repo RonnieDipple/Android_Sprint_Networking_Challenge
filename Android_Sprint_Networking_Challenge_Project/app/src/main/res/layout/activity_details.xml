@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsActivity">
+    tools:context=".activities.DetailsActivity">
 
     <ImageView
         android:id="@+id/image_view_fullscreen"
@@ -31,10 +31,11 @@
 
     <TextView
         android:id="@+id/text_view_ability"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_no_id"
+        app:layout_constraintBottom_toBottomOf="parent"
 
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_no_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

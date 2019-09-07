@@ -1,6 +1,4 @@
-package com.example.android_sprint3_challenge
-
-import java.io.Serializable
+package com.example.android_sprint3_challenge.model
 
 
 data class Pokemon(
@@ -15,7 +13,7 @@ data class Pokemon(
 
 data class Type(val name: String)
 
-data class TypeList (val type: Type )
+data class TypeList (val type: Type)
 
 data class Ability(val name: String)
 
@@ -23,7 +21,7 @@ data class AbilityList(val ability: Ability)
 
 data class Move(val name: String)
 
-data class MovesList(val move: Move  )
+data class MovesList(val move: Move)
 
 data class Sprite (val front_default: String )
 
