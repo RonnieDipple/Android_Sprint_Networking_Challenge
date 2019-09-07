@@ -3,6 +3,9 @@ package com.example.android_sprint3_challenge
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,5 +32,13 @@ class DetailsActivity : AppCompatActivity()/*, Callback<Pokemon> */{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+        val id = intent.getStringExtra("id")
+        val url = intent.getStringExtra("spriteUrl")
+
+        if (id != null && url != null){
+            Picasso.get().load(url).into(image_view_fullscreen)
+        }
+
+
     }
 }
