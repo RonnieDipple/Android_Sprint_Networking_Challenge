@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.list_item.view.*
 import kotlin.collections.ArrayList
 
 
-class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter (val list: MutableList<Pokemon>): RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.text_view_tem
@@ -37,7 +37,9 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(data[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.textView.text = list[position].name
+    }
 
 
 

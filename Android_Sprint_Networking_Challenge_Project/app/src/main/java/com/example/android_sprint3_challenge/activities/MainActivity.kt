@@ -3,7 +3,11 @@ package com.example.android_sprint3_challenge.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.View.inflate
+import android.widget.Adapter
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_sprint3_challenge.R
@@ -14,7 +18,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
     private lateinit var linearLayoutManager: LinearLayoutManager
 
 
@@ -27,8 +31,8 @@ class MainActivity : AppCompatActivity(){
         linearLayoutManager = LinearLayoutManager(this)
         recycler_view.layoutManager = linearLayoutManager
 
-        image_View_Search_icon.setOnClickListener {
 
+        image_View_Search_icon.setOnClickListener {
 
 
             RetrofitInstance.getPokemon(edit_Text_Search.text.toString())
@@ -44,22 +48,27 @@ class MainActivity : AppCompatActivity(){
                             toggleVisibility(progressBar)
                             val myPokemon: Pokemon? = response.body() // The Json response body
                             val intent = Intent(context, DetailsActivity::class.java)
-                            intent.putExtra("id", myPokemon?.id.toString() ) // passes the id from the json body into the intent
-                            intent.putExtra("spriteUrl", myPokemon?.sprites?.front_default) // passes the URL from the json body into the intent
+                            intent.putExtra(
+                                "id",
+                                myPokemon?.id.toString()
+                            ) // passes the id from the json body into the intent
+                            intent.putExtra(
+                                "spriteUrl",
+                                myPokemon?.sprites?.front_default
+                            ) // passes the URL from the json body into the intent
                             intent.putExtra("name", myPokemon?.name.toString())
+                            val main = cons_layout
+                            val view = layoutInflater.inflate(R.layout.list_item, main, false)
+                            main.addView(view)
 
 
-                           /* intent.putExtra("ability", myPokemon?.abilities)
-                            intent.putExtra("move", myPokemon?.move)
-                            intent.putExtra("type", myPokemon?.types)*/
+                            /* intent.putExtra("ability", myPokemon?.abilities)
+                             intent.putExtra("move", myPokemon?.move)
+                             intent.putExtra("type", myPokemon?.types)*/
 
 
 
                             startActivity(intent) // Starts the activity with the intent
-
-
-
-
 
 
                         }
@@ -68,20 +77,18 @@ class MainActivity : AppCompatActivity(){
             toggleVisibility(progressBar)
 
 
-
         }
-
 
 
     }
 
     //makes views visible or invisible
 
-    fun toggleVisibility(view: View){
+    fun toggleVisibility(view: View) {
 
-        view.visibility = if (view.visibility == View.VISIBLE){
+        view.visibility = if (view.visibility == View.VISIBLE) {
             View.INVISIBLE
-        }else{
+        } else {
             View.VISIBLE
         }
 
